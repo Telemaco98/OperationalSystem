@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
+<title>Projeto de Threads - Sistemas Operacionais: Código-Fonte de src/Main.cpp</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    if ($('.searchresults').length > 0) { searchBox.DOMSearchField().focus(); }
+  });
+</script>
+<link rel="search" href="../../search-opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="Projeto de Threads - Sistemas Operacionais"/>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Projeto de Threads - Sistemas Operacionais
+   </div>
+   <div id="projectbrief">Analise empirica de algoritmos de multiplicação de matrizes</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.6 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Localizar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="../../pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Ficheiros</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+          <div class="left">
+            <form id="FSearchBox" action="../../search.php" method="get">
+              <img id="MSearchSelect" src="../../search/mag.png" alt=""/>
+              <input type="text" id="MSearchField" name="query" value="Localizar" size="20" accesskey="S" 
+                     onfocus="searchBox.OnSearchFieldFocus(true)" 
+                     onblur="searchBox.OnSearchFieldFocus(false)"/>
+            </form>
+          </div><div class="right"></div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Lista&#160;de&#160;ficheiros</span></a></li>
+      <li><a href="../../globals.html"><span>Ficheiros&#160;membro</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('de/d6d/src_2_main_8cpp_source.html','../../');});
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">Main.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../de/d6d/src_2_main_8cpp.html">Ir para a documentação deste ficheiro.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">using</span> std::cout;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">using</span> std::endl;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">//Para comunicacao entre processos</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;unistd.h&gt;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;cstdlib&gt;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;Calculus.h&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="../../de/d6d/src_2_main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97">   25</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../de/d6d/src_2_main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97">main</a> (<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> * argv[]){</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        srand(time(NULL));</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <a class="code" href="../../db/d7d/include_2_archive_8h.html#a655d873fa29970319a7f3695a94b2ad5">outArchives</a>(<span class="stringliteral">&quot;A&quot;</span>); <span class="comment">// chama para criar as matrizes</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <a class="code" href="../../db/d7d/include_2_archive_8h.html#a655d873fa29970319a7f3695a94b2ad5">outArchives</a>(<span class="stringliteral">&quot;B&quot;</span>); <span class="comment">// chama para criar as matrizes</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        cout &lt;&lt; endl &lt;&lt; <span class="stringliteral">&quot;Iniciando análise empírica!&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        cout &lt;&lt; <span class="stringliteral">&quot;Cada multiplicação é realizada 20 vezes para reduzir oscilações de tempos através de um desvio padrão.&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        cout &lt;&lt; <span class="stringliteral">&quot;Pode ser que não haja memória suficiente para as multiplicações de matrizes enormes, isso não afetará os dados gerados anteriomente&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        cout &lt;&lt; <span class="stringliteral">&quot;Ao final do processo, gere os gráficos digitando \&#39;$ make gnuplot\&#39; por linha de comando.&quot;</span> &lt;&lt;endl;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        cout &lt;&lt; <span class="stringliteral">&quot;Por favor, espere até que as multiplicações finalizem.&quot;</span> &lt;&lt; endl &lt;&lt; endl;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <a class="code" href="../../db/d53/include_2_calculus_8h.html#ab0db16fb3114006e8321b5cf99528806">analiseEmpirica</a>();</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        cout &lt;&lt; endl &lt;&lt; endl &lt;&lt; <span class="stringliteral">&quot;Digite \&#39;$ make gnuplot\&#39; no terminal para gerar os gráficos com os dados obtidos. &quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="comment">// System(&quot;ipcrm -m &lt;num&gt;&quot;);</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="comment">// shmctl(key, IPC_RMID, NULL);</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="comment">// shmctl(50, IPC_RMID, NULL);</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;}</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">/*TODO</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment">- Ler duas matrizes pela linha de comando (Try/Cathc too)</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">- Ler duas matrizes por leitura de arquivo</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">- Ver checagem do tamanho das matrizes para a multiplicação (Try/catch too)</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">- Criar função para multiplicar matrizes usando processos</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">- Criar memoria compartilhada para armazenar as matrizes</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">- Criar função para imprimir na tela ou no arquivo</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">- Criar menu de interação? (y)</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">*/</span> </div>
+<div class="ttc" id="include_2_calculus_8h_html_ab0db16fb3114006e8321b5cf99528806"><div class="ttname"><a href="../../db/d53/include_2_calculus_8h.html#ab0db16fb3114006e8321b5cf99528806">analiseEmpirica</a></div><div class="ttdeci">void analiseEmpirica()</div><div class="ttdoc">Função para fazer a análise empírica entre os algoritmos de multiplicação de matrizes. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/d01/src_2_calculus_8cpp_source.html#l00046">Calculus.cpp:46</a></div></div>
+<div class="ttc" id="include_2_archive_8h_html_a655d873fa29970319a7f3695a94b2ad5"><div class="ttname"><a href="../../db/d7d/include_2_archive_8h.html#a655d873fa29970319a7f3695a94b2ad5">outArchives</a></div><div class="ttdeci">void outArchives(string lyric)</div><div class="ttdoc">Função para gerar as matrizes de dimensões 1x1, 2x2, 3x3, 4x4, 5x5, 6x6, 8x8, 10x10, 20x20, 30x30, 40x40, 50x50, 75x75 e 100x100 randomicamente e colocalas em um arquivo. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d65/src_2_archive_8cpp_source.html#l00045">Archive.cpp:45</a></div></div>
+<div class="ttc" id="src_2_main_8cpp_html_a0ddf1224851353fc92bfbff6f499fa97"><div class="ttname"><a href="../../de/d6d/src_2_main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97">main</a></div><div class="ttdeci">int main(int argc, char *argv[])</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d6d/src_2_main_8cpp_source.html#l00025">Main.cpp:25</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="../../de/d6d/src_2_main_8cpp.html">Main.cpp</a></li>
+    <li class="footer">Gerado em Quarta, 13 de Setembro de 2017 23:03:03 para Projeto de Threads - Sistemas Operacionais por
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+  </ul>
+</div>
+</body>
+</html>

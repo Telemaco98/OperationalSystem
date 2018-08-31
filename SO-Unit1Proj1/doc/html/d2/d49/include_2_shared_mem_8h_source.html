@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
+<title>Projeto de Threads - Sistemas Operacionais: Código-Fonte de include/SharedMem.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    if ($('.searchresults').length > 0) { searchBox.DOMSearchField().focus(); }
+  });
+</script>
+<link rel="search" href="../../search-opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="Projeto de Threads - Sistemas Operacionais"/>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Projeto de Threads - Sistemas Operacionais
+   </div>
+   <div id="projectbrief">Analise empirica de algoritmos de multiplicação de matrizes</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.6 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Localizar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="../../pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Ficheiros</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+          <div class="left">
+            <form id="FSearchBox" action="../../search.php" method="get">
+              <img id="MSearchSelect" src="../../search/mag.png" alt=""/>
+              <input type="text" id="MSearchField" name="query" value="Localizar" size="20" accesskey="S" 
+                     onfocus="searchBox.OnSearchFieldFocus(true)" 
+                     onblur="searchBox.OnSearchFieldFocus(false)"/>
+            </form>
+          </div><div class="right"></div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Lista&#160;de&#160;ficheiros</span></a></li>
+      <li><a href="../../globals.html"><span>Ficheiros&#160;membro</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('d2/d49/include_2_shared_mem_8h_source.html','../../');});
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">SharedMem.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d2/d49/include_2_shared_mem_8h.html">Ir para a documentação deste ficheiro.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef _SHARED_MEM_H_</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define _SHARED_MEM_H_</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">using</span> std::cout;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">using</span> std::endl;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">//Para memoria compartilhada</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;sys/types.h&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;sys/ipc.h&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;sys/shm.h&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="../../d2/d49/include_2_shared_mem_8h.html#ab4a8a85f73018df13c9007e6fc15ca5b">   23</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../d2/d49/include_2_shared_mem_8h.html#ab4a8a85f73018df13c9007e6fc15ca5b">createShMem</a>(<span class="keywordtype">int</span> tam, key_t key){</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordtype">int</span> shmid;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordflow">if</span> ((shmid = shmget(key, tam*<span class="keyword">sizeof</span>(T), IPC_CREAT | 0666)) &lt; 0) {</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                perror(<span class="stringliteral">&quot;shmget&quot;</span>);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                cout &lt;&lt; <span class="stringliteral">&quot;Erro ao criar memoria compartilhada! Saindo da execucao!&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                exit(1);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        }</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keywordflow">return</span> shmid;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;}</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="../../d2/d49/include_2_shared_mem_8h.html#afeaeba878960f2013f6cbcdb30247cb5">   43</a></span>&#160;T* <a class="code" href="../../d2/d49/include_2_shared_mem_8h.html#afeaeba878960f2013f6cbcdb30247cb5">attachShMem</a>(<span class="keywordtype">int</span> shmid){</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        T *shm;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        shm = (T*) shmat(shmid, NULL, 0);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordflow">if</span> (shm == (<span class="keywordtype">void</span>*) -1) {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                perror(<span class="stringliteral">&quot;shmat&quot;</span>);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                cout &lt;&lt; <span class="stringliteral">&quot;Erro ao anexar memoria compartilhada! Saindo da execucao!&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                exit(1);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        }</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordflow">return</span> shm;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="../../d2/d49/include_2_shared_mem_8h.html#a5f15f6e3bda3179406b10a49f4a4d45a">   63</a></span>&#160;T* <a class="code" href="../../d2/d49/include_2_shared_mem_8h.html#a5f15f6e3bda3179406b10a49f4a4d45a">sharedMem</a>(<span class="keywordtype">int</span> tam, key_t key){</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordtype">int</span> shmid = createShMem&lt;T&gt;(tam, key);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keywordflow">return</span> attachShMem&lt;T&gt;(shmid);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;}</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="../../d2/d49/include_2_shared_mem_8h.html#ae4275dbc42a380c44398d73ed7e45196">   78</a></span>&#160;T** <a class="code" href="../../d2/d49/include_2_shared_mem_8h.html#ae4275dbc42a380c44398d73ed7e45196">alocarMatrizComShMEM</a>(<span class="keywordtype">int</span> *lin, <span class="keywordtype">int</span> *col){</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        T **matriz;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        key_t key=20* (*lin);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        matriz = sharedMem&lt;T*&gt;(*lin, key);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i&lt;*lin; i++){</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                key++; <span class="comment">//Key deve ser incrementado para que cada linha da matriz seja referenciada por uma chave unica</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                matriz[i] = sharedMem&lt;T&gt;(*col, key);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        }</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keywordflow">return</span> matriz;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;}</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d2/d49/include_2_shared_mem_8h.html#ac2cfc12a98bae7191f7953b65d44f7d0">deleteMem</a>(key_t key);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="comment">//FIXME remover todas as memorias compartilhadas identificadas pelas keys com IPC_RMID (ISSO NAO ESTA FUNCIONANDO!)</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d2/d49/include_2_shared_mem_8h.html#ab52e5f89d18b4ea50aec108474a689cc">deleteSharedMem</a>(<span class="keywordtype">int</span> *lin);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="include_2_shared_mem_8h_html_ab4a8a85f73018df13c9007e6fc15ca5b"><div class="ttname"><a href="../../d2/d49/include_2_shared_mem_8h.html#ab4a8a85f73018df13c9007e6fc15ca5b">createShMem</a></div><div class="ttdeci">int createShMem(int tam, key_t key)</div><div class="ttdoc">Função para criar a memória compartilhada. </div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d49/include_2_shared_mem_8h_source.html#l00023">SharedMem.h:23</a></div></div>
+<div class="ttc" id="include_2_shared_mem_8h_html_afeaeba878960f2013f6cbcdb30247cb5"><div class="ttname"><a href="../../d2/d49/include_2_shared_mem_8h.html#afeaeba878960f2013f6cbcdb30247cb5">attachShMem</a></div><div class="ttdeci">T * attachShMem(int shmid)</div><div class="ttdoc">Função que anexa a memória compartilhada. </div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d49/include_2_shared_mem_8h_source.html#l00043">SharedMem.h:43</a></div></div>
+<div class="ttc" id="include_2_shared_mem_8h_html_ab52e5f89d18b4ea50aec108474a689cc"><div class="ttname"><a href="../../d2/d49/include_2_shared_mem_8h.html#ab52e5f89d18b4ea50aec108474a689cc">deleteSharedMem</a></div><div class="ttdeci">void deleteSharedMem(int *lin)</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dbe/_shared_mem_8cpp_source.html#l00016">SharedMem.cpp:16</a></div></div>
+<div class="ttc" id="include_2_shared_mem_8h_html_a5f15f6e3bda3179406b10a49f4a4d45a"><div class="ttname"><a href="../../d2/d49/include_2_shared_mem_8h.html#a5f15f6e3bda3179406b10a49f4a4d45a">sharedMem</a></div><div class="ttdeci">T * sharedMem(int tam, key_t key)</div><div class="ttdoc">Função que invoca as funções de criação e anexo da memória compartilhada. </div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d49/include_2_shared_mem_8h_source.html#l00063">SharedMem.h:63</a></div></div>
+<div class="ttc" id="include_2_shared_mem_8h_html_ac2cfc12a98bae7191f7953b65d44f7d0"><div class="ttname"><a href="../../d2/d49/include_2_shared_mem_8h.html#ac2cfc12a98bae7191f7953b65d44f7d0">deleteMem</a></div><div class="ttdeci">void deleteMem(key_t key)</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dbe/_shared_mem_8cpp_source.html#l00010">SharedMem.cpp:10</a></div></div>
+<div class="ttc" id="include_2_shared_mem_8h_html_ae4275dbc42a380c44398d73ed7e45196"><div class="ttname"><a href="../../d2/d49/include_2_shared_mem_8h.html#ae4275dbc42a380c44398d73ed7e45196">alocarMatrizComShMEM</a></div><div class="ttdeci">T ** alocarMatrizComShMEM(int *lin, int *col)</div><div class="ttdoc">Função que aloca memória compartilhada no formato de matriz. </div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d49/include_2_shared_mem_8h_source.html#l00078">SharedMem.h:78</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="../../d2/d49/include_2_shared_mem_8h.html">SharedMem.h</a></li>
+    <li class="footer">Gerado em Quarta, 13 de Setembro de 2017 23:03:03 para Projeto de Threads - Sistemas Operacionais por
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+  </ul>
+</div>
+</body>
+</html>
